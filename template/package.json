@@ -24,10 +24,11 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "vue": "^2.5.9"{{#router}},
-    "vue-router": "^3.0.1"{{/router}},
+    "axios": "^0.17.1",
     "element-ui": "^2.0.7"
-
+    "vue": "^2.5.9"{{#router}},
+    "vue-axios": "^2.0.2",
+    "vue-router": "^3.0.1"{{/router}},
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
