@@ -25,10 +25,10 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
-    "element-ui": "^2.0.7"
+    "element-ui": "^2.0.7",
     "vue": "^2.5.9"{{#router}},
     "vue-axios": "^2.0.2",
-    "vue-router": "^3.0.1"{{/router}},
+    "vue-router": "^3.0.1"{{/router}}
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -104,8 +104,13 @@
     {{/e2e}}
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.8",
+    "pug": "^2.0.0-rc.4",
+    "pug-loader": "^2.3.0",
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "toml-loader": "^1.0.0",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.2.0",
     "rimraf": "^2.6.0",
