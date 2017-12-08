@@ -1,15 +1,39 @@
-import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-import Router from 'vue-router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-import HelloWorld from '@/components/HelloWorld'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import Vue from 'vue'
+import Router from 'vue-router'
+import HelloWorld from '@/components/HelloWorld'
+import {KalixLogin, KalixHome, Cache} from 'kalix-base'
 
-Vue.use(Router){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
-      path: '/',
+      path: '/hello',
       name: 'HelloWorld',
-      component: HelloWorld{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-    }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  ]{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-}){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+      component: HelloWorld
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: KalixLogin
+    },
+    {
+      path: '/',
+      name: 'home',
+      component: KalixHome,
+      children: [
+        {path: '/:app', name: 'header', component: KalixHome},
+        {path: '/:app/:fun', name: 'navigator', component: KalixHome}
+      ]
+    }
+  ]
+})
+
+router.beforeEach((to, from, next) => {
+  if (Cache.get('id') === null && to.name !== 'login') {
+  next({path: '/login'})
+}
+next()
+})
+
+export default router

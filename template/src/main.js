@@ -9,6 +9,7 @@ import VueAxios from 'vue-axios'
 {{#router}}
 import router from './router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/router}}
+import './element-ui'
 import KalixBase from 'kalix-base'
 
 Vue.config.productionTip = false{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
