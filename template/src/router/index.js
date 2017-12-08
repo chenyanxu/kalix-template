@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-import {KalixLogin, KalixHome, Cache} from 'kalix-base'
+import Home from '@/views/home/home'
+import {Login, Cache} from 'kalix-base'
 
 Vue.use(Router)
 
 const router = new Router({
+  mode: 'history',
   routes: [
     {
       path: '/hello',
@@ -15,15 +17,15 @@ const router = new Router({
     {
       path: '/login',
       name: 'login',
-      component: KalixLogin
+      component: Login
     },
     {
       path: '/',
       name: 'home',
-      component: KalixHome,
+      component: Home,
       children: [
-        {path: '/:app', name: 'header', component: KalixHome},
-        {path: '/:app/:fun', name: 'navigator', component: KalixHome}
+        {path: '/:app', name: 'header', component: Home},
+        {path: '/:app/:fun', name: 'navigator', component: Home}
       ]
     }
   ]
