@@ -4,15 +4,18 @@
 {{/if_eq}}
 import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import App from './App'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-import axios from 'axios'
+import axios from '@/config/axios'
 import VueAxios from 'vue-axios'
 {{#router}}
 import router from './router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/router}}
+import KalixBase from 'kalix-base'
 
 Vue.config.productionTip = false{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 Vue.use(VueAxios, axios)
+Vue.use(KalixBase)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
